@@ -1,0 +1,11 @@
+dépendances installées :
+@microsoft/microsoft-graph-client
+@azure/msal-browser
+
+inscription programme développeur azure pour inscrire une application sur le portail azure
+configuration du programme azure "Test"
+configuration du manifeste par rapport au besoin de l'application :
+	"signInAudience": "AzureADandPersonalMicrosoftAccount",
+    "accessTokenAcceptedVersion": 2,
+
+
