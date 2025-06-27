@@ -48,6 +48,15 @@ export async function getToken() {
   return response.accessToken;
 }
 
+export async function getUserProfile(accessToken) {
+  const response = await fetch("https://graph.microsoft.com/v1.0/me", {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  if (!response.ok) throw new Error("Failed to fetch user profile");
+  return await response.json();
+}
 export function signOut() {
   msalInstance.logoutPopup();
 }
