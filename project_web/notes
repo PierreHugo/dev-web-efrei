@@ -4,8 +4,15 @@ dépendances installées :
 
 inscription programme développeur azure pour inscrire une application sur le portail azure
 configuration du programme azure "Test"
-configuration du manifeste par rapport au besoin de l'application :
-	"signInAudience": "AzureADandPersonalMicrosoftAccount",
-    "accessTokenAcceptedVersion": 2,
+    lien d'ajout dans SPA et non application web
 
+Google Cloud Console :
+    Créer un projet, active l'api 'Fitness API'
 
+    Code secret de l'application :
+    Demander à Romain
+    Id Client de l'application :
+    Demander à Romain
+
+fichier de google-fit-callback.html pour pouvoir gérer le masquage de la pop-up de connexion + renvoyer les données utiles à la page principale
+Stockage des variables utilisateurs avec Pinia dans stores/user.js

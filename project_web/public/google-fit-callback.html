@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Fit Callback</title>
+</head>
+<body>
+<script>
+  // Récupère le token dans l'URL
+  const hash = window.location.hash.substr(1);
+  const params = new URLSearchParams(hash);
+  const accessToken = params.get('access_token');
+
+  // Envoie le token à la page principale
+  if (window.opener && accessToken) {
+    window.opener.postMessage({ type: 'google_fit_token', accessToken }, '*');
+  }
+
+  // Ferme la popup
+  window.close();
+</script>
+<p>Connexion Google Fit en cours...</p>
+</body>
+</html>

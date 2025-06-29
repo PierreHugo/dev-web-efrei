@@ -1,11 +1,10 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
 import BaseLayout from './components/BaseLayout.vue'
-import HomePage from './pages/HomePage.vue'
+import LoginPage from './pages/LoginPage.vue'
 </script>
 <template>
   <base-layout>
-    <home-page />
+    <login-page />
   </base-layout>
 </template>
 
