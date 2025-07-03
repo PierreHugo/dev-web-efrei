@@ -5,6 +5,7 @@ export const useUserStore = defineStore('user', () => {
   const profile = ref(null)
   const isMicrosoftConnected = ref(false)
   const isGoogleFitConnected = ref(false)
+  const googleFitAccessToken = ref(null)
 
   function setProfile(data) {
     profile.value = data
@@ -15,6 +16,18 @@ export const useUserStore = defineStore('user', () => {
   function setGoogleFitConnected(val) {
     isGoogleFitConnected.value = val
   }
+  function setGoogleFitAccessToken(token) {
+    googleFitAccessToken.value = token
+  }
 
-  return { profile, isMicrosoftConnected, isGoogleFitConnected, setProfile, setMicrosoftConnected, setGoogleFitConnected }
+  return {
+    profile,
+    isMicrosoftConnected,
+    isGoogleFitConnected,
+    googleFitAccessToken,
+    setProfile,
+    setMicrosoftConnected,
+    setGoogleFitConnected,
+    setGoogleFitAccessToken
+  }
 })

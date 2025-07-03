@@ -12,6 +12,7 @@
     >
       Se connecter à Google Fit
     </BaseButton>
+    <HomePage v-if="userStore.isGoogleFitConnected"></HomePage>
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import { useUserStore } from '@/stores/user'
 import { signInAndGetUser, getToken, getUserProfile } from "@/lib/microsoftGraph.js";
 import BaseButton from '@/components/BaseButton.vue'
 import { ref, onMounted, onUnmounted } from "vue";
+import HomePage from '@/pages/HomePage.vue'
 
 const userStore = useUserStore()
 const googleFitAccessToken = ref(null)
@@ -53,9 +55,9 @@ function handleGoogleFit() {
 // Pour éviter d'ajouter plusieurs listeners si le composant est recréé
 function onGoogleFitMessage(event) {
   if (event.data.type === 'google_fit_token') {
-    googleFitAccessToken.value = event.data.accessToken;
-    userStore.setGoogleFitConnected(true)
-    console.log('Token Google Fit reçu :', googleFitAccessToken.value);
+    userStore.setGoogleFitAccessToken(event.data.accessToken);
+    userStore.setGoogleFitConnected(true);
+    console.log('Token Google Fit reçu :', event.data.accessToken);
   }
 }
 onMounted(() => window.addEventListener('message', onGoogleFitMessage));

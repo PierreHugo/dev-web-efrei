@@ -1,10 +1,9 @@
 <script setup>
 import BaseLayout from './components/BaseLayout.vue'
-import LoginPage from './pages/LoginPage.vue'
 </script>
 <template>
   <base-layout>
-    <login-page />
+    <router-view></router-view>
   </base-layout>
 </template>
 

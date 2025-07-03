@@ -1,12 +1,25 @@
 <template>
-  <section>
-    <h2>Bienvenue !</h2>
-    <p>Voici une application Vue.js minimaliste et moderne.</p>
-  </section>
+  <div>
+    <div v-if="userStore.isGoogleFitConnected">
+      <h1>Accueil</h1>
+      <p>Vous êtes connecté à Google Fit.</p>
+      <button @click="goToGoogleFit">Afficher mes données google fit</button>
+    </div>
+    <div v-else>
+      <LoginPage></LoginPage>
+    </div>
+  </div>
 </template>
 
-<script>
-export default {
-  name: "HomePage",
-};
+<script setup>
+import { useUserStore } from '@/stores/user';
+import { useRouter } from 'vue-router'
+import LoginPage from '@/pages/LoginPage.vue'
+
+const userStore = useUserStore();
+const router = useRouter();
+
+const goToGoogleFit = () => {
+  router.push('/google-fit')
+}
 </script>
