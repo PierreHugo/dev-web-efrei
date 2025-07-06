@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
   import HomePage from '@/pages/HomePage.vue'
   import GoogleFitPage from '@/pages/GoogleFitPage.vue'
   import LoginPage from '@/pages/LoginPage.vue'
+  import DailyJournalPage from '@/pages/DailyJournalPage.vue'
 
   const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +21,11 @@ import { createRouter, createWebHistory } from 'vue-router'
         path: '/google-fit',
         name: 'google-fit',
         component: GoogleFitPage,
+      },
+      {
+        path: '/daily-journal',
+        name: 'daily-journal',
+        component: DailyJournalPage,
       },
     ],
   })

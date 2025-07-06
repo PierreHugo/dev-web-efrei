@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useUserStore } from '@/stores/user.js'
-import SleepJournal from '@/components/Journal/SleepJournal.vue'
+import SleepJournal from '@/components/journal/SleepJournal.vue'
 
 const userStore = useUserStore()
 
