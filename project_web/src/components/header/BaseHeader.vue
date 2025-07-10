@@ -1,17 +1,22 @@
 <template>
   <header id="header">
+    <Sidebar :isOpen="sidebarOpen" @close="sidebarOpen = false" />
+
     <div class="header-content">
-      <header-content />
+      <HeaderContent @toggle-sidebar="toggleSidebar" />
     </div>
   </header>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
+import Sidebar from '@/components/header/SideBar.vue'
 import HeaderContent from '@/components/header/HeaderContent.vue'
-export default {
-  name: "BaseHeader",
-  components: { HeaderContent }
-};
+
+const sidebarOpen = ref(false)
+const toggleSidebar = () => {
+  sidebarOpen.value = !sidebarOpen.value
+}
 </script>
 
 <style scoped>
@@ -42,31 +47,13 @@ export default {
 
 .header-content {
   display: flex;
-  justify-content: space-between; /* Espace entre gauche et droite */
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 32px;
-  height: 64px; /* ou selon ton design */
+  width: 100vw;      /* occupe toute la largeur */
+  max-width: none;   /* pas de limite */
+  margin: 0;         /* pas de marge latérale */
   padding: 0;
-}
-
-.left, .center, .right {
-  display: flex;
-  align-items: center;
-}
-
-.center {
-  flex: 1;
-  justify-content: center;
-}
-
-.left {
-  justify-content: flex-start;
-}
-
-.right {
-  justify-content: flex-end;
-  gap: 1.2em;
+  gap: 2em;
+  height: 64px;
 }
 </style>

@@ -285,6 +285,18 @@ onMounted(() => {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+div {
+  font-family: 'Inter', Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1.08rem;
+  color: #23272f;
+  background: #f8fafc;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding: 0;
+}
+
 .daily-journal-container {
   max-width: 800px;
   margin: 20px auto;
