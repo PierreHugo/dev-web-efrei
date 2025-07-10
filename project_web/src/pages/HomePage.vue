@@ -33,9 +33,6 @@
 import BaseButton from '@/components/BaseButton.vue';
 import router from '@/router/index.js'
 
-const goToHome = () => {
-  router.push('/')
-}
 
 const goToGoogleFit = () => {
   router.push('/google-fit')
