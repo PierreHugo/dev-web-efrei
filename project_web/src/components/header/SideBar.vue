@@ -63,7 +63,7 @@ const goToDailyJournal = () => {
   margin: 60px 0 0 0;
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 0.4em;
 }
 
 .sidebar a {
