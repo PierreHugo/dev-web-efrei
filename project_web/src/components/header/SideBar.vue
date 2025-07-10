@@ -3,7 +3,7 @@
     <nav v-if="isOpen" class="sidebar">
       <button @click="$emit('close')" class="close-btn" aria-label="Fermer le menu">×</button>
       <ul>
-        <li><a @click="goToDailyJournal">🏠 Accueil</a></li>
+        <li><a @click="goToHome">🏠 Accueil</a></li>
         <li><a @click="goToDailyJournal">📝 Journal</a></li>
         <li><a @click="goToGoogleFit">📈 Google Fit</a></li>
       </ul>
@@ -14,6 +14,11 @@
 <script setup>
 defineProps(['isOpen'])
 import router from '@/router/index.js'
+
+const goToHome = () => {
+  router.push('/')
+}
+
 const goToGoogleFit = () => {
   router.push('/google-fit')
 }
