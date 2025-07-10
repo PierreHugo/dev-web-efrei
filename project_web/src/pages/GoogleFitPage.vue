@@ -1,28 +1,37 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { GoogleFitService } from '@/lib/GoogleFitService.js'
 
 import StepGraph from '@/components/Graphes/StepGraph.vue'
 import SleepMoodGraph from '@/components/Graphes/SleepMoodGraph.vue'
 import ActivityMoodScatter from '@/components/Graphes/ActivityMoodScatter.vue'
+import SleepJournal from '@/components/journal/SleepJournal.vue'
 
-// Exemple de données humeur (à remplacer par ton vrai journal)
-const moodByDate = {
-  '07/06/2025': 4,
-  '07/07/2025': 3,
-  '07/08/2025': 5,
-}
+const moodByDay = ref([
+  { date: '10/07/2025', mood: 4 },
+  { date: '09/07/2025', mood: 3 },
+  { date: '08/07/2025', mood: 5 },
+])
+
+const moodDataMap = computed(() => {
+  const map = {}
+  moodByDay.value.forEach(entry => {
+    map[entry.date] = entry.mood
+  })
+  return map
+})
 
 const steps = ref([])
 const sleepMood = ref([])
 const activityMood = ref([])
+const googleFitService = new GoogleFitService()
 
 const service = new GoogleFitService()
 
 onMounted(async () => {
   steps.value = await service.getStepsByDay()
-  sleepMood.value = await service.getSleepAndMood(moodByDate)
-  activityMood.value = await service.getStepsAndMood(moodByDate)
+  sleepMood.value = await googleFitService.getSleepAndMood(moodDataMap.value)
+  activityMood.value = await googleFitService.getStepsAndMood(moodDataMap.value)
 })
 </script>
 
