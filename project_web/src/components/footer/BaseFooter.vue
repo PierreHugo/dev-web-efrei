@@ -16,11 +16,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 #footer {
-  width: 100vw;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  padding: 20px 0;
+  width: 100%;
+  padding: 1rem;
   background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
   color: #fff;
   text-align: center;
