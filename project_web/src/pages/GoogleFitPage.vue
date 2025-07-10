@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import { useUserStore } from '@/stores/user.js'
 import SleepJournal from '@/components/journal/SleepJournal.vue'
+import StepGraph from '@/components/StepGraph.vue'
+
 
 const userStore = useUserStore()
 
@@ -134,15 +136,12 @@ function fetchAllData() {
       Récupérer les données Google Fit
     </button>
 
-    <!-- Bloc pour les données de pas (ton code actuel) -->
+    <!-- Bloc pour les données de pas -->
     <div v-if="stepsByDay.length > 0">
       <h2>Pas sur la dernière semaine :</h2>
-      <ul>
-        <li v-for="(day, index) in stepsByDay" :key="index">
-          {{ day.date }} : {{ day.steps }} pas
-        </li>
-      </ul>
+      <StepGraph  :stepsData="stepsByDay" />
     </div>
+
 
     <!-- Bloc séparé pour les données sommeil -->
     <div>
