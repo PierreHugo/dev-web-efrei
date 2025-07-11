@@ -46,6 +46,7 @@ onMounted(() => {
 
 <template>
   <div class="google-fit-page">
+
     <BaseButton @click="fetchAllData">Récupérer les données Google Fit</BaseButton>
 
     <h2>Pas par jour</h2>

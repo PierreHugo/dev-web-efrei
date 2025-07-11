@@ -1,11 +1,11 @@
 <template>
-  <div class="home-container">
+  <div class="home-container" v-if="userStore.isGoogleFitConnected">
     <h1>Bienvenue</h1>
 
     <div class="home-section main-presentation">
       <h2>L'application</h2>
       <p>
-        Découvrez une plateforme complète pour suivre votre bien-être : sommeil, humeur, activité physique et alimentation, tout en un seul endroit.
+        Découvrez une plateforme complète pour suivre votre bien-être : sommeil, humeur, activité physique et alimentation, tout en un seul endroit.
       </p>
       <ul>
         <li>Suivi quotidien personnalisé</li>
@@ -27,11 +27,18 @@
       </div>
     </div>
   </div>
+  <div v-else>
+    <LoginPage></LoginPage>
+  </div>
 </template>
 
 <script setup>
 import BaseButton from '@/components/BaseButton.vue';
 import router from '@/router/index.js'
+import { useUserStore } from '@/stores/user'
+import LoginPage from '@/pages/LoginPage.vue'
+
+const userStore = useUserStore();
 
 
 const goToGoogleFit = () => {
